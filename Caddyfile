@@ -1,0 +1,10 @@
+{
+  email jamie@ivyleav.es
+}
+
+binny.ppb.dev {
+  reverse_proxy {
+    to localhost:9081
+    header_up X-Forwarded-Proto https
+  }
+}
