@@ -114,22 +114,17 @@ description = "GraphQL Query Modules"
 name = "gqlmod"
 optional = false
 python-versions = ">=3.7"
-version = "0.7.2.dev12"
+version = "0.8"
 
 [package.dependencies]
 astor = "*"
 click = "*"
-graphql-core = "*"
+graphql-core = ">=3.1.0b2"
 import-x = "*"
 setuptools = "*"
 
 [package.extras]
 aiohttp = ["aiohttp"]
-
-[package.source]
-reference = "a999cf41f330e94e5465a9b438b390eef627ef1a"
-type = "git"
-url = "https://github.com/gqlmod/gqlmod.git"
 
 [[package]]
 category = "main"
@@ -137,10 +132,16 @@ description = "GitHub provider for gqlmod"
 name = "gqlmod-github"
 optional = false
 python-versions = ">=3.7"
-version = "0.5.4.dev6"
+version = "0.6"
 
 [package.dependencies]
-gqlmod = "*"
+[[package.dependencies.gqlmod]]
+version = ">=0.8.0"
+
+[[package.dependencies.gqlmod]]
+extras = ["aiohttp"]
+optional = true
+version = "*"
 
 [package.dependencies.aiohttp]
 optional = true
@@ -156,24 +157,15 @@ version = "*"
 
 [package.extras]
 app = ["jwcrypto", "python-dateutil"]
-async = ["aiohttp", "gqlmod"]
+async = ["gqlmod", "aiohttp"]
 
-[package.source]
-reference = "ff809b7b7afd5079f858be89a0ed4a2934c0ae60"
-type = "git"
-url = "https://github.com/gqlmod/gqlmod-github.git"
 [[package]]
 category = "main"
-description = ""
+description = "GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL."
 name = "graphql-core"
 optional = false
-python-versions = "^3.6"
-version = "3.1.0b1"
-
-[package.source]
-reference = "85635a2a1d170d0fcf208db614c2816cf8852db6"
-type = "git"
-url = "https://github.com/graphql-python/graphql-core.git"
+python-versions = ">=3.6,<4"
+version = "3.1.0b2"
 
 [[package]]
 category = "main"
@@ -406,8 +398,8 @@ idna = ">=2.0"
 multidict = ">=4.0"
 
 [metadata]
-content-hash = "781b488f069070be7679b196e868dfbb34030211ad8c346d3a511fea33d3c179"
-python-versions = "^3.7"
+content-hash = "02af6fb0f6cad9e0d6796ce37a3e35c1047cd8eef56b219b87760853ad6f927c"
+python-versions = "^3.8"
 
 [metadata.files]
 aiofiles = [
@@ -504,9 +496,18 @@ cryptography = [
     {file = "cryptography-2.8-cp38-cp38-win_amd64.whl", hash = "sha256:971221ed40f058f5662a604bd1ae6e4521d84e6cad0b7b170564cc34169c8f13"},
     {file = "cryptography-2.8.tar.gz", hash = "sha256:3cda1f0ed8747339bbdf71b9f38ca74c7b592f24f65cdb3ab3765e4b02871651"},
 ]
-gqlmod = []
-gqlmod-github = []
-graphql-core = []
+gqlmod = [
+    {file = "gqlmod-0.8-py3-none-any.whl", hash = "sha256:b166a48450ff630bdfcbcd4850e6b715cfdb93e85c9b935135180602b6a2072e"},
+    {file = "gqlmod-0.8.tar.gz", hash = "sha256:d5fcb08ab20413b1791bf946033e62bd8c737b6f37a7750922c336d4e68da475"},
+]
+gqlmod-github = [
+    {file = "gqlmod-github-0.6.tar.gz", hash = "sha256:e57d02163d8c78ca055cc88472c597469d8a005242c8af64d394ba7bcc92655a"},
+    {file = "gqlmod_github-0.6-py3-none-any.whl", hash = "sha256:e35dd895f5457c7a2a0ce2af09d3cb9bd2bda98274f2636e1bedf4ee63bfc1e7"},
+]
+graphql-core = [
+    {file = "graphql-core-3.1.0b2.tar.gz", hash = "sha256:732f046d911901b5f626079cdd7a71b4cacfb31db689025f3cc94db67247de9f"},
+    {file = "graphql_core-3.1.0b2-py3-none-any.whl", hash = "sha256:f185a10ba1712cf4d8cb69de58a1b4494c1fb9701a15564bcdf0cc6aa264dbc6"},
+]
 h11 = [
     {file = "h11-0.9.0-py2.py3-none-any.whl", hash = "sha256:4bc6d6a1238b7615b266ada57e0618568066f57dd6fa967d1290ec9309b2f2f1"},
     {file = "h11-0.9.0.tar.gz", hash = "sha256:33d4bca7be0fa039f4e84d50ab00531047e53d6ee8ffbc83501ea602c169cae1"},
