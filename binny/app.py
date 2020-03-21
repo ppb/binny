@@ -1,14 +1,11 @@
 import gqlmod
 gqlmod.enable_gql_import()  # noqa
 
-import importlib.resources
 import logging
-import os
-import pathlib
 import subprocess
 import sys
 
-from quart import Quart, request
+from quart import Quart
 import quart_github_webhook
 
 from .globals import ghapp
@@ -99,11 +96,12 @@ async def deployment(payload):
     https://developer.github.com/v3/activity/events/types/#deploymentevent
     """
     repo = payload['repository']
+    deployment = payload['deployment']
     if repo['full_name'] == 'ppb/binny' and payload['action'] == 'created':
         # Redploy myself
         log = open('/tmp/binny-deploy.log')
         subprocess.Popen(
-            [sys.executable, '-m', 'binny.deploy'],
+            [sys.executable, '-m', 'binny.deploy', deployment['node_id']],
             stdin=subprocess.DEVNULL,
             stdout=log,
             stderr=log,
