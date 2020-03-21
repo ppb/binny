@@ -1,0 +1,13 @@
+# Copy to ~binny/.config/systemd/user/binny.service
+[Unit]
+Description="Binny the Binary Bear"
+Requires=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/binny
+ExecStart=/home/binny/serve
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
