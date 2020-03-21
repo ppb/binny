@@ -12,7 +12,7 @@ from quart import Quart, request
 import quart_github_webhook
 
 from .globals import ghapp
-from .checks import get_check_suites
+from .checks import get_check_suites, trigger_deployment, get_ref
 
 log = logging.getLogger(__name__)
 
@@ -70,16 +70,37 @@ async def check_suite(payload):
         commit_sha = suite['head_commit']['id']
         resp = await get_check_suites(repo=repo['node_id'], commit=commit_sha)
         assert not resp.errors, resp.errors
-        suites = resp.data['node']['object']['checkSuites']['nodes']
+        suite_nodes = resp.data['node']['object']['checkSuites']['nodes']
         has_succeeded = all(
             s['status'] == 'COMPLETED' and s['conclusion'] == 'SUCCESS'
-            for s in suites
+            for s in suite_nodes
         )
         if not has_succeeded:
             # Not all checks passed
             return
 
+        # Get the actual ref object we're referring to
+        resp = await get_ref(repo=repo['node_id'], ref=f"refs/heads/{suite['head_branch']}")
+        assert not resp.errors, resp.errors
+        ref_node = resp.data['node']['ref']
+        if ref_node['target']['oid'] != commit_sha:
+            # Ref doesn't match the commit this event was for
+            # Presumably, another commit has happened in the meantime
+            return
+
         # OK, now we can deploy
+        resp = await trigger_deployment(repo=repo['node_id'], ref=ref_node['id'])
+        assert not resp.errors, resp.errors
+
+
+@webhook.hook('deployment')
+async def deployment(payload):
+    """
+    https://developer.github.com/v3/activity/events/types/#deploymentevent
+    """
+    repo = payload['repository']
+    if repo['full_name'] == 'ppb/binny' and payload['action'] == 'created':
+        # Redploy myself
         log = open('/tmp/binny-deploy.log')
         subprocess.Popen(
             [sys.executable, '-m', 'binny.deploy'],
