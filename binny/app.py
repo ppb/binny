@@ -2,6 +2,7 @@ import gqlmod
 gqlmod.enable_gql_import()  # noqa
 
 import logging
+import os
 import subprocess
 import sys
 
@@ -15,13 +16,13 @@ log = logging.getLogger(__name__)
 
 
 app = Quart(__name__)
-app.config.from_object('local_config')
+app.config.from_mapping(os.environ)
 
 
 webhook = quart_github_webhook.Webhook(
     app,
     endpoint='/webhook/github',
-    secret=app.config['WEBHOOK_SECRET'],
+    secret=app.config['WEBHOOK_SECRET'].encode('ascii'),
 )
 
 
