@@ -22,7 +22,7 @@ app.config.from_mapping(os.environ)
 webhook = quart_github_webhook.Webhook(
     app,
     endpoint='/webhook/github',
-    secret=app.config['WEBHOOK_SECRET'].encode('ascii'),
+    secret=app.config['WEBHOOK_SECRET'],
 )
 
 
