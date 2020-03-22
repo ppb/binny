@@ -5,8 +5,8 @@ Requires=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/binny
-ExecStart=/home/binny/serve
+WorkingDirectory=/home/binny/bot
+ExecStart=/home/binny/bot/serve
 Restart=on-failure
 
 [Install]
