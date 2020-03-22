@@ -1,0 +1,16 @@
+[Unit]
+Description=Supervisor process control system for UNIX
+Documentation=http://supervisord.org
+After=network.target
+
+[Service]
+User=binny
+ExecStart=/home/binny/bot/services -n -c /home/binny/bot/supervisord.conf
+ExecStop=/home/binny/bot/services $OPTIONS shutdown
+ExecReload=/home/binny/bot/services $OPTIONS reload
+KillMode=process
+Restart=on-failure
+RestartSec=50s
+
+[Install]
+WantedBy=multi-user.target

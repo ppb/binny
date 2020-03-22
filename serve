@@ -1,3 +1,0 @@
-#!/bin/bash
-source .venv/bin/activate
-exec hypercorn binny.app:entrypoint --config python:hypercorn_config.py --access-logfile - "$@"
