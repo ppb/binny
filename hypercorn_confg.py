@@ -1,5 +1,3 @@
-bind = ['127.0.0.1:9081']
-
 logconfig_dict = {
     "version": 1,
     "disable_existing_loggers": False,
