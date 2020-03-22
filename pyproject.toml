@@ -12,6 +12,7 @@ gqlmod = "^0.8"
 gqlmod-github = {version = "^0.6", extras = ["app", "async"]}
 hypercorn = {version = "^0.9.2", extras = ["uvloop"]}
 supervisor = "^4.1.0"
+quart_github_webhook = "^0.3"
 
 [tool.poetry.dev-dependencies]
 

@@ -344,6 +344,17 @@ dotenv = ["python-dotenv"]
 
 [[package]]
 category = "main"
+description = "Very simple, but powerful, microframework for writing Github webhooks in Python"
+name = "quart-github-webhook"
+optional = false
+python-versions = "*"
+version = "0.3"
+
+[package.dependencies]
+quart = "*"
+
+[[package]]
+category = "main"
 description = "Python 2 and 3 compatibility utilities"
 name = "six"
 optional = false
@@ -421,7 +432,7 @@ idna = ">=2.0"
 multidict = ">=4.0"
 
 [metadata]
-content-hash = "ee077d221963547132f2f38117687dc30651751a22dca01126941233dd21df71"
+content-hash = "91a0262f925df0e42a80e36ec3285cad8248957dd92dda6a44ac7a1a2b301c7a"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -640,6 +651,9 @@ python-dateutil = [
 quart = [
     {file = "Quart-0.11.3-py3-none-any.whl", hash = "sha256:4a569f5994ef66046ecc047165ffa61264cdb16edcdbfb5e8fe6065818855a10"},
     {file = "Quart-0.11.3.tar.gz", hash = "sha256:eef9c074c7ca856b9abc85e9291c684b955822bf38dbd23378886064415a20f6"},
+]
+quart-github-webhook = [
+    {file = "quart-github-webhook-0.3.tar.gz", hash = "sha256:23d85db72544141978dafe9ddef5090a3b4360a813728dc9dc84b4f03778ce99"},
 ]
 six = [
     {file = "six-1.14.0-py2.py3-none-any.whl", hash = "sha256:8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"},
