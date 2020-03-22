@@ -1,3 +1,0 @@
-#!/usr/bin/bash
-export PATH=~/.local/bin:$PATH
-exec ~binny/.local/bin/supervisord -c ~binny/bot/etc/supervisord.conf "$@"
