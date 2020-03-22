@@ -33,7 +33,7 @@ async def status():
     """
     gh_ok = True
     try:
-        ghapp.get_this_app()
+        await ghapp.get_this_app()
     except Exception:
         log.exception("Error checking github")
         gh_ok = False
