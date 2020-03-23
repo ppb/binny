@@ -114,7 +114,7 @@ description = "GraphQL Query Modules"
 name = "gqlmod"
 optional = false
 python-versions = ">=3.7"
-version = "0.8"
+version = "0.8.1"
 
 [package.dependencies]
 astor = "*"
@@ -432,7 +432,7 @@ idna = ">=2.0"
 multidict = ">=4.0"
 
 [metadata]
-content-hash = "91a0262f925df0e42a80e36ec3285cad8248957dd92dda6a44ac7a1a2b301c7a"
+content-hash = "be268111a1db939ea27bb8cc3697318ff757a6901c554a5d4e056b8743a7a7fb"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -531,8 +531,8 @@ cryptography = [
     {file = "cryptography-2.8.tar.gz", hash = "sha256:3cda1f0ed8747339bbdf71b9f38ca74c7b592f24f65cdb3ab3765e4b02871651"},
 ]
 gqlmod = [
-    {file = "gqlmod-0.8-py3-none-any.whl", hash = "sha256:b166a48450ff630bdfcbcd4850e6b715cfdb93e85c9b935135180602b6a2072e"},
-    {file = "gqlmod-0.8.tar.gz", hash = "sha256:d5fcb08ab20413b1791bf946033e62bd8c737b6f37a7750922c336d4e68da475"},
+    {file = "gqlmod-0.8.1-py3-none-any.whl", hash = "sha256:30908c67ccb6d41aa30ad4fddea51a91a2160bb66a1f0bbef529d0b97ad6c46c"},
+    {file = "gqlmod-0.8.1.tar.gz", hash = "sha256:c43adb7fe5730734b7f9ca209549967f35dea6c4d7f3ea585acdf95605a2118f"},
 ]
 gqlmod-github = [
     {file = "gqlmod-github-0.6.tar.gz", hash = "sha256:e57d02163d8c78ca055cc88472c597469d8a005242c8af64d394ba7bcc92655a"},
