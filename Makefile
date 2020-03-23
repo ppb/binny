@@ -1,3 +1,6 @@
+all: poetry.lock requirements.txt
+.PHONY: all
+
 poetry.lock: pyproject.toml
 	poetry lock
 
