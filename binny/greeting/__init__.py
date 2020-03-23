@@ -1,4 +1,4 @@
-from .queries import get_all_prs
+from .queries import get_all_prs, add_pr_comment
 
 
 MESSAGE = """
@@ -21,6 +21,7 @@ async def iter_prs(repo):
 
 
 async def count_prs_for_user(repo, login):
+    # FIXME: Is there a more efficient way to do this?
     prs = [
         pr
         async for pr in iter_prs(repo)
@@ -50,4 +51,8 @@ async def do_greeting(pull_request, repository, sender, **_):
         return
 
     # Ok, this is a greetable PR, send the greeting
-    ...
+    resp = await add_pr_comment(
+        pr=pull_request['node_id'],
+        body=MESSAGE,
+    )
+    assert not resp.errors, resp.errors

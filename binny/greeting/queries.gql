@@ -26,3 +26,17 @@ query get_all_prs($repo:ID!, $after:String) {
         }
     }
 }
+
+
+mutation add_pr_comment($pr:ID!, $body:String!) {
+    addComment(input: {
+        subjectId: $pr
+        body: $body
+    }) {
+        commentEdge {
+            node {
+                id
+            }
+        }
+    }
+}
