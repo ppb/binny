@@ -1,0 +1,28 @@
+#~github-async~
+
+query get_all_prs($repo:ID!, $after:String) {
+    node(id:$repo) {
+        ... on Repository {
+            id
+            pullRequests(
+                after: $after
+                first: 100
+            ) {
+                nodes {
+                    id
+                    author {
+                        __typename
+                        ... on Node {
+                            id
+                        }
+                        login
+                    }
+                }
+                pageInfo {
+                    endCursor
+                    hasNextPage
+                }
+            }
+        }
+    }
+}
