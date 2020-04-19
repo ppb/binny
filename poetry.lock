@@ -114,7 +114,7 @@ description = "GraphQL Query Modules"
 name = "gqlmod"
 optional = false
 python-versions = ">=3.7"
-version = "0.8"
+version = "0.8.2"
 
 [package.dependencies]
 astor = "*"
@@ -201,7 +201,7 @@ description = "A ASGI Server based on Hyper libraries and inspired by Gunicorn."
 name = "hypercorn"
 optional = false
 python-versions = ">=3.7"
-version = "0.9.2"
+version = "0.9.3"
 
 [package.dependencies]
 h11 = "*"
@@ -432,7 +432,7 @@ idna = ">=2.0"
 multidict = ">=4.0"
 
 [metadata]
-content-hash = "91a0262f925df0e42a80e36ec3285cad8248957dd92dda6a44ac7a1a2b301c7a"
+content-hash = "be268111a1db939ea27bb8cc3697318ff757a6901c554a5d4e056b8743a7a7fb"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -531,8 +531,8 @@ cryptography = [
     {file = "cryptography-2.8.tar.gz", hash = "sha256:3cda1f0ed8747339bbdf71b9f38ca74c7b592f24f65cdb3ab3765e4b02871651"},
 ]
 gqlmod = [
-    {file = "gqlmod-0.8-py3-none-any.whl", hash = "sha256:b166a48450ff630bdfcbcd4850e6b715cfdb93e85c9b935135180602b6a2072e"},
-    {file = "gqlmod-0.8.tar.gz", hash = "sha256:d5fcb08ab20413b1791bf946033e62bd8c737b6f37a7750922c336d4e68da475"},
+    {file = "gqlmod-0.8.2-py3-none-any.whl", hash = "sha256:818e888259aa6587901ff2ccf161ff9f34b7e39937f51f7ffd3532d5eb5e456c"},
+    {file = "gqlmod-0.8.2.tar.gz", hash = "sha256:e342dda314e095d3c9f4cca2db6ad923e17b6cf63e4fb0bbd6dd14e30fad9a0c"},
 ]
 gqlmod-github = [
     {file = "gqlmod-github-0.6.tar.gz", hash = "sha256:e57d02163d8c78ca055cc88472c597469d8a005242c8af64d394ba7bcc92655a"},
@@ -555,8 +555,8 @@ hpack = [
     {file = "hpack-3.0.0.tar.gz", hash = "sha256:8eec9c1f4bfae3408a3f30500261f7e6a65912dc138526ea054f9ad98892e9d2"},
 ]
 hypercorn = [
-    {file = "Hypercorn-0.9.2-py3-none-any.whl", hash = "sha256:0f17937b7ce450c27f4780c18d564cc13585ce7694a4079b1d3781d9989b8b39"},
-    {file = "Hypercorn-0.9.2.tar.gz", hash = "sha256:c1f7db2b75e4a640edce32a567f065251f4d69840f00cc40a9d5b8178c909bd9"},
+    {file = "Hypercorn-0.9.3-py3-none-any.whl", hash = "sha256:a146146a48f658f5dca32841f3eb866d67b15cb3007ab125b96037272f1f2f84"},
+    {file = "Hypercorn-0.9.3.tar.gz", hash = "sha256:be7b31d869ad8da11c9737894a952cdf28b570f86bac319ba2e61c257b9d6873"},
 ]
 hyperframe = [
     {file = "hyperframe-5.2.0-py2.py3-none-any.whl", hash = "sha256:5187962cb16dcc078f23cb5a4b110098d546c3f41ff2d4038a9896893bbd0b40"},
