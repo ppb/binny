@@ -49,8 +49,6 @@ async def greeting_pull_request(payload):
     repo = payload['repository']
     async with ghapp.for_installation(payload['installation']['id']):
         # Limit this to the test repo for now.
-        if repo['full_name'] != 'ppb/binny-test-repo':
-            return
         if payload['action'] == 'opened':
             await do_greeting(**payload)
 
