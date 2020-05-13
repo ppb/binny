@@ -9,7 +9,8 @@ Thank you for contributing to PursuedPyBear! Don't forget to add yourself `CONTR
 async def iter_prs(repo):
     resp = await get_all_prs(repo=repo)
     assert not resp.errors, resp.errors
-    yield from resp.data['node']['pullRequests']['nodes']
+    for pr in resp.data['node']['pullRequests']['nodes']:
+        yield pr
 
     while resp.data['node']['pullRequests']['pageInfo']['hasNextPage']:
         resp = await get_all_prs(
@@ -17,7 +18,8 @@ async def iter_prs(repo):
             after=resp.data['node']['pullRequests']['pageInfo']['endCursor'],
         )
         assert not resp.errors, resp.errors
-        yield from resp.data['node']['pullRequests']['nodes']
+        for pr in resp.data['node']['pullRequests']['nodes']:
+            yield pr
 
 
 async def count_prs_for_user(repo, login):
